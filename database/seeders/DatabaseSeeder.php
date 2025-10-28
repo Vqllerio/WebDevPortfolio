@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,15 +12,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Seed a test user
         User::firstOrCreate(
             ['email' => 'test@example.com'],
             [
                 'name' => 'Test User',
-                'password' => 'password',
+                'password' => bcrypt('password'), // Make sure to hash passwords!
                 'email_verified_at' => now(),
             ]
         );
+
+        // ✅ Add this line so your projects get seeded
+        $this->call([
+            ProjectSeeder::class,
+        ]);
     }
 }

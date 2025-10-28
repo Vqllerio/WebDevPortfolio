@@ -1,14 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProjectController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+// Projects page — use controller if you want to load from DB
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';

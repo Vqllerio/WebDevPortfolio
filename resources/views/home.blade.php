@@ -18,7 +18,7 @@
                         fullstack development, innovation, and building meaningful digital experiences that make a difference.
                     </p>
                     <div class="d-flex gap-3 flex-wrap">
-                        <a href="{{ route('projects') }}" class="btn btn-gradient">
+                        <a href="{{ route('projects') }}" class="btn btn-gradient" style="pointer-events:auto; opacity:1;">
                             <i class="fas fa-rocket me-2"></i>View My Projects
                         </a>
                         <a href="{{ route('about') }}" class="btn btn-outline-light">
